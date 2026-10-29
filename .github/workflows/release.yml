@@ -1,0 +1,38 @@
+# Publishes a GitHub release for a suite folder already in this repository (teamqa-suite-<version>), so the release
+# is made by GitHub Actions. The suite and the channel index are signed before they are committed; this workflow
+# only checks that the folder matches the signed channel and packs it.
+name: release
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Suite version, for example 1.14.0
+        required: true
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check the folder against the signed channel index
+        env:
+          VERSION: ${{ inputs.version }}
+        run: |
+          set -euo pipefail
+          [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || { echo "bad version $VERSION"; exit 1; }
+          dir="teamqa-suite-$VERSION"
+          test -f "$dir/suite.json"
+          want=$(jq -r --arg v "$VERSION" '[.latest] + .history | map(select(.version == $v)) | .[0].suite_sha256' channel.json)
+          have=$(sha256sum "$dir/suite.json" | cut -d' ' -f1)
+          [ "$want" = "$have" ] || { echo "suite.json does not match the channel index"; exit 1; }
+      - name: Pack and publish
+        env:
+          VERSION: ${{ inputs.version }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          dir="teamqa-suite-$VERSION"
+          tar czf "$dir.tar.gz" "$dir"
+          awk -v v="## $VERSION" 'index($0, v) == 1 {on=1; next} /^## / {on=0} on' CHANGELOG.md > notes.md
+          gh release create "team-qa-$VERSION" "$dir.tar.gz" --title "Team QA $VERSION" --notes-file notes.md --target "$GITHUB_SHA"
