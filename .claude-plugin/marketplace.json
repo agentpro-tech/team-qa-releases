@@ -24,8 +24,8 @@
         "release-readiness"
       ],
       "source": {
-        "source": "github",
-        "repo": "agentpro-tech/team-qa-plugin",
+        "source": "url",
+        "url": "https://github.com/agentpro-tech/team-qa-plugin.git",
         "ref": "v1.15.1",
         "sha": "8c694c8b0ff8a42e8ee3bc4c401c9e7a74aa1bbf"
       }
