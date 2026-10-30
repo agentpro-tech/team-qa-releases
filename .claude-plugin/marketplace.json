@@ -26,8 +26,8 @@
       "source": {
         "source": "github",
         "repo": "agentpro-tech/team-qa-plugin",
-        "ref": "v1.15.0",
-        "sha": "c72e5b76434c15a6c965eadc0ce97b712b5482f2"
+        "ref": "v1.15.1",
+        "sha": "8c694c8b0ff8a42e8ee3bc4c401c9e7a74aa1bbf"
       }
     }
   ]

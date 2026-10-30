@@ -2,17 +2,17 @@
   "schema": "agentpro/teamqa-channel/v1",
   "channel": "stable",
   "latest": {
-    "version": "1.15.0",
-    "path": "teamqa-suite-1.15.0",
-    "suite_sha256": "a26e226580810c438daf4e7072b35faee4c15ecf70ef773ded954a47f1c5ce8c",
-    "published_at": "2026-10-30T05:41:23.105Z",
+    "version": "1.15.1",
+    "path": "teamqa-suite-1.15.1",
+    "suite_sha256": "f3a8cac7e79d9bcaea833e46d78f7f06dcfd60e023df3f1aa86f6304622776ba",
+    "published_at": "2026-10-30T06:50:46.322Z",
     "upgrade_from": null,
     "license_required": false,
-    "changelog": "Team QA as a Claude Code plugin: install with /plugin marketplace add agentpro-tech/team-qa-releases and /plugin install team-qa@agentpro. Each skill uses the QA GUI, QA Code or Team QA installed next to it. In the plugin, teamqa is on the PATH of Claude's commands, the hooks act only for registered runs, Claude Code handles updates, and teamqa doctor names the release's Dragon runtime.\n",
+    "changelog": "Fixes from a review of the 1.15 release: approval refuses negations, the test-password scan reads real credential forms, QA GUI and QA Code never pass a board or a review whose checks did not run, and teamqa update works from 1.15.0.\n",
     "skills": {
-      "qa-code": "1.11.0",
-      "qa-gui": "2.17.0",
-      "team-qa": "1.15.0"
+      "qa-code": "1.11.1",
+      "qa-gui": "2.17.1",
+      "team-qa": "1.15.1"
     },
     "requirements": {
       "schema": "agentpro/skill-requirements/v1",
@@ -65,6 +65,69 @@
     }
   },
   "history": [
+    {
+      "version": "1.15.1",
+      "path": "teamqa-suite-1.15.1",
+      "suite_sha256": "f3a8cac7e79d9bcaea833e46d78f7f06dcfd60e023df3f1aa86f6304622776ba",
+      "published_at": "2026-10-30T06:50:46.322Z",
+      "upgrade_from": null,
+      "license_required": false,
+      "changelog": "Fixes from a review of the 1.15 release: approval refuses negations, the test-password scan reads real credential forms, QA GUI and QA Code never pass a board or a review whose checks did not run, and teamqa update works from 1.15.0.\n",
+      "skills": {
+        "qa-code": "1.11.1",
+        "qa-gui": "2.17.1",
+        "team-qa": "1.15.1"
+      },
+      "requirements": {
+        "schema": "agentpro/skill-requirements/v1",
+        "skill": "team-qa",
+        "platforms": [
+          "darwin"
+        ],
+        "node": {
+          "min": "20.0.0"
+        },
+        "dragon": {
+          "bridge": {
+            "min": "1.6.9",
+            "below": "2.0.0"
+          },
+          "extension": {
+            "min": "1.6.9",
+            "below": "2.0.0",
+            "store_ids": [
+              "dmgoldioklileddehbjpbfacojckfkjo"
+            ]
+          },
+          "rpc": [
+            "session.create",
+            "openTab",
+            "do",
+            "captureTab",
+            "getTabInfo",
+            "getPageIdentity",
+            "getNetwork",
+            "getConsole",
+            "startRecording",
+            "stopRecording",
+            "assembleRecording"
+          ],
+          "store_url": "https://chromewebstore.google.com/detail/dmgoldioklileddehbjpbfacojckfkjo",
+          "runtime": {
+            "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAl+1R6bhJsFHY5COifdKtMuhKgNXjlVXp1xbzod5WGZc=\n-----END PUBLIC KEY-----\n",
+            "fingerprint": "sha256:539511950b8749cc87e4908a10f362f4dfc2095e1663f6948bffb4bb2861ca3d"
+          }
+        },
+        "skills": {
+          "qa-gui": {
+            "min": "2.16.0"
+          },
+          "qa-code": {
+            "min": "1.10.0"
+          }
+        }
+      }
+    },
     {
       "version": "1.15.0",
       "path": "teamqa-suite-1.15.0",
