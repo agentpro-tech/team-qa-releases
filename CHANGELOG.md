@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.15.1 — 2026-10-30
+
+Fixes from a review of the 1.15 release: Team QA 1.15.1, QA GUI 2.17.1, QA Code 1.11.1 and the Dragon runtime 1.6.10.
+
+- Roster and plan approval refuse any message that says no, not yet, wait or stop, in English or Vietnamese. "Don't approve yet" no longer counts as an approval.
+- The test-password scan reads the forms real accounts files use (`ADMIN_PASSWORD=`, labels in Vietnamese, quoted values, numbers, `.env` files, linked files), scans outputs of any size, and warns `TEST_SECRETS_NOT_FOUND` when it reads no value.
+- QA GUI: a board with no executed case, or one that says GO while cases are still TODO, is UNGRADED, never PASS. `qa_do` reports PASS only for a complete, clean run. Its scripts also work when run through a linked folder.
+- QA Code: every PASS needs a green Gate 0; a secret or CVE scanner that fails is UNGRADED; gitleaks runs with QA Code's own config, so the reviewed repository cannot change it.
+- From 1.15.0, `teamqa update` installs 1.15.1; in Claude Code, `/plugin update team-qa@agentpro`.
+
 ## 1.15.0 — 2026-10-30
 
 Team QA as a Claude Code plugin: Team QA 1.15.0, QA GUI 2.17.0, QA Code 1.11.0 and the Dragon runtime 1.6.10.
