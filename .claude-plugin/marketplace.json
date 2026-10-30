@@ -1,0 +1,34 @@
+{
+  "name": "agentpro",
+  "owner": {
+    "name": "Agent Pro",
+    "url": "https://github.com/agentpro-tech"
+  },
+  "description": "Signed Agent Pro plugins for Claude Code.",
+  "plugins": [
+    {
+      "name": "team-qa",
+      "displayName": "Team QA",
+      "description": "A QA team inside Claude Code: plans, runs and grades GUI and code checks with evidence, and ends with GO or NO_GO.",
+      "author": {
+        "name": "Agent Pro",
+        "url": "https://github.com/agentpro-tech"
+      },
+      "homepage": "https://github.com/agentpro-tech/team-qa-releases",
+      "repository": "https://github.com/agentpro-tech/team-qa-plugin",
+      "keywords": [
+        "qa",
+        "testing",
+        "browser-testing",
+        "code-review",
+        "release-readiness"
+      ],
+      "source": {
+        "source": "github",
+        "repo": "agentpro-tech/team-qa-plugin",
+        "ref": "v1.15.0",
+        "sha": "c72e5b76434c15a6c965eadc0ce97b712b5482f2"
+      }
+    }
+  ]
+}
