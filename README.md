@@ -2,9 +2,9 @@
 
 Team QA runs QA on your app the way a small QA team would: it plans the testing, gets your sign-off on the plan, runs separate agents for each role, checks every verdict against evidence, and ends with a GO or NO_GO you can trace back to screenshots, network logs and recordings. It runs inside your own Claude Code or Codex session on your Mac.
 
-This repository holds the signed releases only. Team QA is free to use for now, with no licence needed.
+This repository holds the signed releases and the `agentpro` plugin marketplace. Team QA is free to use for now, with no licence needed.
 
-**Latest: Team QA 1.14.0** (with QA GUI 2.16.0, QA Code 1.10.0 and the Dragon runtime 1.6.10). See [Releases](../../releases).
+**Latest: Team QA 1.15.0** (with QA GUI 2.17.0, QA Code 1.11.0 and the Dragon runtime 1.6.10). See [Releases](../../releases).
 
 ## What you need
 
@@ -14,13 +14,32 @@ This repository holds the signed releases only. Team QA is free to use for now, 
 - Google Chrome with the **Dragon Browser** extension from the [Chrome Web Store](https://chromewebstore.google.com/detail/dmgoldioklileddehbjpbfacojckfkjo).
 - An app to test, and test accounts for it. Team QA reports bugs; it does not fix them.
 
-## Install
+## Install in Claude Code
 
-1. Download `teamqa-suite-1.14.0.tar.gz` from the [latest release](../../releases/latest) and unpack it:
+Team QA is a Claude Code plugin. In Claude Code:
+
+```text
+/plugin marketplace add agentpro-tech/team-qa-releases
+/plugin install team-qa@agentpro
+```
+
+The plugin holds the same signed suite as the download below (source: [agentpro-tech/team-qa-plugin](https://github.com/agentpro-tech/team-qa-plugin)). Claude Code does not update plugins from other marketplaces on its own until you allow it: open `/plugin`, go to **Marketplaces**, pick **agentpro** and choose **Enable auto-update**. Otherwise run `/plugin update team-qa@agentpro` when a new version is out.
+
+Then ask Claude to run `teamqa doctor`: the `teamqa` command is on the PATH of the commands Claude runs. When the doctor reports the Dragon runtime missing, it prints the command that installs the signed runtime of this release, for example:
+
+```bash
+teamqa dragon install --from https://github.com/agentpro-tech/team-qa-releases/releases/download/team-qa-1.15.0/dragon-runtime.dbrc
+```
+
+Then install the Dragon extension (see [Dragon](#dragon) below) and ask for your first run.
+
+## Install with the suite installer (Codex, or by hand)
+
+1. Download `teamqa-suite-1.15.0.tar.gz` from the [latest release](../../releases/latest) and unpack it:
 
    ```bash
-   tar xzf ~/Downloads/teamqa-suite-1.14.0.tar.gz -C ~/Downloads
-   cd ~/Downloads/teamqa-suite-1.14.0
+   tar xzf ~/Downloads/teamqa-suite-1.15.0.tar.gz -C ~/Downloads
+   cd ~/Downloads/teamqa-suite-1.15.0
    ```
 
 2. Run the installer. It checks Node, prints the publisher key id, verifies every signature, then installs QA Code, QA GUI and Team QA into `~/.agents/skills` (SCROLL, the runtime Team QA uses to confirm its writes, ships inside Team QA):
@@ -47,10 +66,10 @@ This repository holds the signed releases only. Team QA is free to use for now, 
 
 ### Dragon
 
-- **Runtime.** If the doctor reports `DRAGON_RUNTIME_MISSING`, install the signed runtime that ships with the suite. Team QA checks its signature before running any of it:
+- **Runtime.** If the doctor reports `DRAGON_RUNTIME_MISSING`, install the signed runtime: in the plugin, the command the doctor prints (the release's `dragon-runtime.dbrc`); with the suite installer, the runtime that ships in the suite folder. Team QA checks its signature before running any of it:
 
   ```bash
-  teamqa dragon install --from ~/Downloads/teamqa-suite-1.14.0
+  teamqa dragon install --from ~/Downloads/teamqa-suite-1.15.0
   ```
 
 - **Extension.** Install Dragon Browser from the Chrome Web Store, then open the extension's options and click **Connect**; a dialog on your Mac asks you to allow it once. If your version has no Connect button yet, paste the token from `~/.dragon-browser/auth/token` into the options instead.
@@ -86,7 +105,9 @@ Before you approve the roles, Team QA shows what the run is likely to cost at AP
 
 ## Updates
 
-Point Team QA at this repository once:
+In Claude Code, the plugin updates as described under [Install in Claude Code](#install-in-claude-code); `teamqa update` leaves it to Claude Code.
+
+With the suite installer, point Team QA at this repository once:
 
 ```bash
 mkdir -p ~/.agentpro/teamqa
@@ -100,13 +121,16 @@ teamqa update --check     # is a newer suite published?
 teamqa update             # install it (refused while a run is in progress)
 ```
 
+Coming from 1.14.0: its `teamqa update` stops with `SUITE_DRAGON_RUNTIME_DRIFT`. Install 1.15.0 once with `bash install.sh` from the download above (or move to the plugin); `teamqa update` works from 1.15.0 on.
+
 Team QA checks the channel at most once a day and never blocks a run. The channel index is signed with the same publisher key. The previous version is kept for rollback.
 
 ## Your data
 
 - Screenshots, network and console logs, recordings, boards and reports stay in the run folder on your Mac.
 - Prompts and outputs go only to the AI provider you use (Anthropic or OpenAI), under your own account.
-- Team QA sends nothing to us and has no telemetry. The only request it makes for updates is reading this repository's signed channel index, and only once you set the channel.
+- Team QA sends nothing to us and has no telemetry. The only request it makes for updates is reading this repository's signed channel index, and only once you set the channel. Claude Code downloads the plugin from GitHub; `teamqa dragon install --from <URL>` downloads the runtime from this repository's release page.
+- The plugin's hooks act only for a session you registered to a Team QA run (`teamqa continuation register`); for every other session they answer at once and change nothing.
 - The passwords of your test accounts never appear in the board, the report, the RTM or the plan: Team QA refuses to build a report that holds one (`teamqa secrets scan --run <id>` shows where). They may appear in the workers' own prompts and logs inside the run folder on your Mac.
 - The Dragon runtime asks before destructive actions (delete, pay, submit) unless you choose otherwise.
 

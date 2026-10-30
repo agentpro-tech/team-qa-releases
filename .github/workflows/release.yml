@@ -34,5 +34,8 @@ jobs:
           set -euo pipefail
           dir="teamqa-suite-$VERSION"
           tar czf "$dir.tar.gz" "$dir"
+          # The Dragon runtime of the suite, under a fixed name, for `teamqa dragon install --from <release URL>`.
+          runtime=$(ls "$dir"/dragon-runtime-*.dbrc | head -1)
+          cp "$runtime" dragon-runtime.dbrc && cp "$runtime.sig.json" dragon-runtime.dbrc.sig.json
           awk -v v="## $VERSION" 'index($0, v) == 1 {on=1; next} /^## / {on=0} on' CHANGELOG.md > notes.md
-          gh release create "team-qa-$VERSION" "$dir.tar.gz" --title "Team QA $VERSION" --notes-file notes.md --target "$GITHUB_SHA"
+          gh release create "team-qa-$VERSION" "$dir.tar.gz" dragon-runtime.dbrc dragon-runtime.dbrc.sig.json --title "Team QA $VERSION" --notes-file notes.md --target "$GITHUB_SHA"
