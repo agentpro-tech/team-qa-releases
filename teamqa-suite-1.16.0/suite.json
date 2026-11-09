@@ -1,0 +1,129 @@
+{
+  "schema": "agentpro/teamqa-suite/v1",
+  "version": "1.16.0",
+  "created_at": "2026-11-09T19:02:46.605Z",
+  "license_required": false,
+  "requirements": {
+    "schema": "agentpro/skill-requirements/v1",
+    "skill": "team-qa",
+    "platforms": [
+      "darwin"
+    ],
+    "node": {
+      "min": "20.0.0"
+    },
+    "dragon": {
+      "bridge": {
+        "min": "1.6.9",
+        "below": "2.0.0"
+      },
+      "extension": {
+        "min": "1.6.9",
+        "below": "2.0.0",
+        "store_ids": [
+          "dmgoldioklileddehbjpbfacojckfkjo"
+        ]
+      },
+      "rpc": [
+        "session.create",
+        "openTab",
+        "do",
+        "captureTab",
+        "getTabInfo",
+        "getPageIdentity",
+        "getNetwork",
+        "getConsole",
+        "startRecording",
+        "stopRecording",
+        "assembleRecording"
+      ],
+      "store_url": "https://chromewebstore.google.com/detail/dmgoldioklileddehbjpbfacojckfkjo",
+      "runtime": {
+        "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAl+1R6bhJsFHY5COifdKtMuhKgNXjlVXp1xbzod5WGZc=\n-----END PUBLIC KEY-----\n",
+        "fingerprint": "sha256:539511950b8749cc87e4908a10f362f4dfc2095e1663f6948bffb4bb2861ca3d"
+      }
+    },
+    "skills": {
+      "qa-gui": {
+        "min": "2.16.0"
+      },
+      "qa-code": {
+        "min": "1.10.0"
+      }
+    }
+  },
+  "changelog": "Team QA 1.16.0, QA GUI 2.18.0, QA Code 1.11.2 and the Dragon runtime 1.7.0.\n\nGUI cases now run QA GUI's detectors through Dragon 1.7.0: forced loading and error states, a transient probe of each case's main action (fresh test values for a save, none for a delete), an entry probe of each screen, and a width sweep and overlay check once per screen, also for screens a case reaches from a share link. The GUI executor proves the build in the call that opens its tab (openTab proveIdentity). On an older Dragon these checks are reported, not run.\n\nAlso: coverage cells from state receipts, an optional adjudicator from another model family (shadow by default), speed flags that stay off unless the plan turns them on, lighter evidence, and dispatch, hook and update fixes.\n",
+  "upgrade_from": null,
+  "dragon_runtime": {
+    "file": "dragon-runtime-1.7.0.dbrc",
+    "sha256": "858d0b6227c9f66db3c152122f5703a6ec77826d6923ad7c060309dcda7f89db",
+    "signature_sha256": "75c74902408b5618a7ed2c3208b52a35eba9fac5b20db28cf2b4f8f0eacec42d",
+    "version": "1.7.0",
+    "build": "dd95c8c"
+  },
+  "skills": [
+    {
+      "skill": "qa-code",
+      "version": "1.11.2",
+      "zip": "qa-code-1.11.2-release.zip",
+      "folder": "qa-code-1.11.2-release",
+      "zip_sha256": "517f99b78becc28097fcec4df4f64596a7ef45a67653d791435e1b8073f79131",
+      "release": {
+        "schema": "agentpro/release-signature/v1",
+        "key_id": "0cf79a5cf736467e17536e403e95fa66d9b901f29457b98d3111452329b3caa8",
+        "signed": {
+          "skill": "qa-code",
+          "version": "1.11.2",
+          "commit": "455661338c17319e3473a03a5ffc2247e8688c15",
+          "tree": "2ca4a83924fe03d75a6f08c2ebb947d53b3b07e2",
+          "repo": "https://github.com/agentpro-tech/qa-code.git",
+          "manifest_sha256": "649231dc7cda8c79a8ff087c25b80547f3f8187a6249132371820542ba81c26a",
+          "package_sha256": "00d4575c4ec9cc5e847fa9328ba81e0eae56ce62bdcf07fe59224f32eb331144"
+        },
+        "signature": "gB8Oz61q+O++LiPyMTBjlFfK2K+6j4U52CRxOkd3Gzz8izhT65lvfZYoPUF//eMY/VAolWqHud2lspHUvJi2Aw=="
+      }
+    },
+    {
+      "skill": "qa-gui",
+      "version": "2.18.0",
+      "zip": "qa-gui-2.18.0-release.zip",
+      "folder": "qa-gui-2.18.0-release",
+      "zip_sha256": "dd61064980db69bb481d6206d1de8aa2f7e728095f0fcddce82a7d139d11c5fe",
+      "release": {
+        "schema": "agentpro/release-signature/v1",
+        "key_id": "0cf79a5cf736467e17536e403e95fa66d9b901f29457b98d3111452329b3caa8",
+        "signed": {
+          "skill": "qa-gui",
+          "version": "2.18.0",
+          "commit": "f11ac550c893daf3f8dd2dc2a5d7bd65e9c0cb89",
+          "tree": "4b28d1449e314f335d0df568195ffd324445b128",
+          "repo": "https://github.com/agentpro-tech/qa-gui.git",
+          "manifest_sha256": "349b5f5a2577d6caa42770e0af7249a0f93440fec5a57f535257dee9fa81ff7b",
+          "package_sha256": "83b16a382ddcc1238c9ede46fda1c7c57a057fc927b18a174fcd90fa71e78eaf"
+        },
+        "signature": "DA+jDURU3qm1EoYqAgeOxdJYhPGJdeOIdTp35Xp6tby0B5q0VY/NWriWPADo2u+BExAp+nohgRbZ8/G8wI3KAw=="
+      }
+    },
+    {
+      "skill": "team-qa",
+      "version": "1.16.0",
+      "zip": "team-qa-1.16.0-release.zip",
+      "folder": "team-qa-1.16.0-release",
+      "zip_sha256": "73d9615edee4c1b81d095ba26564c3676161c15d9c59d2c38b9f4ac974efe712",
+      "release": {
+        "schema": "agentpro/release-signature/v1",
+        "key_id": "0cf79a5cf736467e17536e403e95fa66d9b901f29457b98d3111452329b3caa8",
+        "signed": {
+          "skill": "team-qa",
+          "version": "1.16.0",
+          "commit": "07b4b8ff55544d7b0b3070d00d342bbee646493f",
+          "tree": "a2b836c9af554016cb34cde4b9fd5432833aeb03",
+          "repo": "https://github.com/agentpro-tech/team-qa.git",
+          "manifest_sha256": "f28c3f1410475804233c664780698192125085fdfa11da42202026918159cd3f",
+          "package_sha256": "adf22bbc11bdd3d794ae2e086c0ba7257b2651533c83f06629042b5207a354cd"
+        },
+        "signature": "p38abRt/kgP1t1aUrQ/4cH0BIRayNr96aoj9bCv8t+ekw2WCSzKJAkcvUOLE6QtpGA/elfwlQ2fG+OuQpnOvBQ=="
+      }
+    }
+  ]
+}
