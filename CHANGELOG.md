@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.16.0 — 2026-11-10
+
+QA GUI's detectors in Team QA runs: Team QA 1.16.0, QA GUI 2.18.0, QA Code 1.11.2 and the Dragon runtime 1.7.0.
+
+- GUI cases run QA GUI's detectors through Dragon 1.7.0: forced loading and error states, a transient probe of each case's main action (fresh test values for a save, none for a delete), an entry probe of each screen, and a width sweep and overlay check once per screen.
+- A screen a case reaches from a share link, with no route in the plan, gets the same screen checks. A check that never gets past the link or the sign-in page is UNGRADED (`SCREEN_ENTRY_NOT_REACHED`).
+- The GUI executor proves the build in the call that opens its tab (`openTab {url, proveIdentity: true}`). The three separate identity reads still work on an older Dragon.
+- On a Dragon older than 1.7.0 these checks are reported as not run.
+- Also: coverage cells from state receipts, an optional adjudicator from another model family (shadow by default), speed flags that stay off unless the plan turns them on, lighter evidence, and dispatch, hook and update fixes.
+- From 1.15.0 or 1.15.1, `teamqa update` installs 1.16.0; in Claude Code, `/plugin update team-qa@agentpro`.
+
 ## 1.15.1 — 2026-10-30
 
 Fixes from a review of the 1.15 release: Team QA 1.15.1, QA GUI 2.17.1, QA Code 1.11.1 and the Dragon runtime 1.6.10.
