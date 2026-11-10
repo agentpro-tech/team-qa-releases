@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.16.1 — 2026-11-10
+
+A fix to the Dragon runtime install: Team QA 1.16.1, QA GUI 2.18.0, QA Code 1.11.2 and the Dragon runtime 1.7.0.
+
+- `teamqa dragon install` installs for real. Before, it ran the runtime's installer by a path macOS reaches through a symlink, the installer skipped its work and exited 0, and Team QA reported the runtime installed while the old one kept running. It now passes only when the installer reports the new version running (`DRAGON_RUNTIME_INSTALL_UNCONFIRMED` otherwise).
+- If you ran `teamqa dragon install` before, run it again with this release; `teamqa doctor` names the runtime version that is running.
+- From 1.15.0 or later, `teamqa update` installs 1.16.1; in Claude Code, `/plugin update team-qa@agentpro`.
+
 ## 1.16.0 — 2026-11-10
 
 QA GUI's detectors in Team QA runs: Team QA 1.16.0, QA GUI 2.18.0, QA Code 1.11.2 and the Dragon runtime 1.7.0.
