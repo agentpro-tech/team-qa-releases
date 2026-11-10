@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.16.2 — 2026-11-10
+
+Claude Code and Codex side by side: Team QA 1.16.2, QA GUI 2.18.0, QA Code 1.11.2 and the Dragon runtime 1.7.0.
+
+- With the Claude Code plugin installed, the suite installer and `teamqa update` (the Codex install) keep the `~/.codex/skills` links and move the `~/.claude/skills` links of qa-code, qa-gui and team-qa to `~/.agents/skills/.backups`. Claude Code loads Team QA once, from the plugin, and Codex keeps using `~/.agents/skills`.
+- `teamqa doctor` warns `DUPLICATE_INSTALL` only when Claude Code would load Team QA twice.
+- From 1.15.0 or later, `teamqa update` installs 1.16.2; in Claude Code, `/plugin update team-qa@agentpro`.
+
 ## 1.16.1 — 2026-11-10
 
 A fix to the Dragon runtime install: Team QA 1.16.1, QA GUI 2.18.0, QA Code 1.11.2 and the Dragon runtime 1.7.0.
