@@ -1,0 +1,129 @@
+{
+  "schema": "agentpro/teamqa-suite/v1",
+  "version": "1.16.1",
+  "created_at": "2026-11-10T00:06:20.697Z",
+  "license_required": false,
+  "requirements": {
+    "schema": "agentpro/skill-requirements/v1",
+    "skill": "team-qa",
+    "platforms": [
+      "darwin"
+    ],
+    "node": {
+      "min": "20.0.0"
+    },
+    "dragon": {
+      "bridge": {
+        "min": "1.6.9",
+        "below": "2.0.0"
+      },
+      "extension": {
+        "min": "1.6.9",
+        "below": "2.0.0",
+        "store_ids": [
+          "dmgoldioklileddehbjpbfacojckfkjo"
+        ]
+      },
+      "rpc": [
+        "session.create",
+        "openTab",
+        "do",
+        "captureTab",
+        "getTabInfo",
+        "getPageIdentity",
+        "getNetwork",
+        "getConsole",
+        "startRecording",
+        "stopRecording",
+        "assembleRecording"
+      ],
+      "store_url": "https://chromewebstore.google.com/detail/dmgoldioklileddehbjpbfacojckfkjo",
+      "runtime": {
+        "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAl+1R6bhJsFHY5COifdKtMuhKgNXjlVXp1xbzod5WGZc=\n-----END PUBLIC KEY-----\n",
+        "fingerprint": "sha256:539511950b8749cc87e4908a10f362f4dfc2095e1663f6948bffb4bb2861ca3d"
+      }
+    },
+    "skills": {
+      "qa-gui": {
+        "min": "2.16.0"
+      },
+      "qa-code": {
+        "min": "1.10.0"
+      }
+    }
+  },
+  "changelog": "Team QA 1.16.1, QA GUI 2.18.0, QA Code 1.11.2 and the Dragon runtime 1.7.0.\n\nteamqa dragon install installs for real: it runs the runtime package installer by its real path (on macOS the temp folder is a symlink, and the installer skipped its work and exited 0), and it passes only when the installer reports the new version running.\n",
+  "upgrade_from": null,
+  "dragon_runtime": {
+    "file": "dragon-runtime-1.7.0.dbrc",
+    "sha256": "858d0b6227c9f66db3c152122f5703a6ec77826d6923ad7c060309dcda7f89db",
+    "signature_sha256": "75c74902408b5618a7ed2c3208b52a35eba9fac5b20db28cf2b4f8f0eacec42d",
+    "version": "1.7.0",
+    "build": "dd95c8c"
+  },
+  "skills": [
+    {
+      "skill": "qa-code",
+      "version": "1.11.2",
+      "zip": "qa-code-1.11.2-release.zip",
+      "folder": "qa-code-1.11.2-release",
+      "zip_sha256": "aad532206e1ca788f4456369dcf08be2919b9ce35bd5fec8f7b3d565d672bb4e",
+      "release": {
+        "schema": "agentpro/release-signature/v1",
+        "key_id": "0cf79a5cf736467e17536e403e95fa66d9b901f29457b98d3111452329b3caa8",
+        "signed": {
+          "skill": "qa-code",
+          "version": "1.11.2",
+          "commit": "455661338c17319e3473a03a5ffc2247e8688c15",
+          "tree": "2ca4a83924fe03d75a6f08c2ebb947d53b3b07e2",
+          "repo": "https://github.com/agentpro-tech/qa-code.git",
+          "manifest_sha256": "649231dc7cda8c79a8ff087c25b80547f3f8187a6249132371820542ba81c26a",
+          "package_sha256": "95b259c34bebb060694800e210e5d4f6791ad475d9ecb453a7beef6a54157a4b"
+        },
+        "signature": "f7hdjLYBdEITxfBzmsdFHxQveQ/UuAZvWZUN81Mv5E5oj/St5ldc+p0E/SrOFu2EFCtfMcAOo9lMxcVXGZLADQ=="
+      }
+    },
+    {
+      "skill": "qa-gui",
+      "version": "2.18.0",
+      "zip": "qa-gui-2.18.0-release.zip",
+      "folder": "qa-gui-2.18.0-release",
+      "zip_sha256": "ae69c82a0d4771d44f7b6b494247ea7ccbc6b90df961f5b4625d6f3cc587f14b",
+      "release": {
+        "schema": "agentpro/release-signature/v1",
+        "key_id": "0cf79a5cf736467e17536e403e95fa66d9b901f29457b98d3111452329b3caa8",
+        "signed": {
+          "skill": "qa-gui",
+          "version": "2.18.0",
+          "commit": "f11ac550c893daf3f8dd2dc2a5d7bd65e9c0cb89",
+          "tree": "4b28d1449e314f335d0df568195ffd324445b128",
+          "repo": "https://github.com/agentpro-tech/qa-gui.git",
+          "manifest_sha256": "349b5f5a2577d6caa42770e0af7249a0f93440fec5a57f535257dee9fa81ff7b",
+          "package_sha256": "1a166bae93817d7f33dfa1dfd5b95ffcbc44e404bc5c2312eb05983de5f49318"
+        },
+        "signature": "j2XmeSV6O6xl02GuXmJOIrMPEcFzgq9czfG+ukvoZclv+W3A+X5ditFQqvEe7oEhTDRZv/xwn/jhBw/+pxUuCg=="
+      }
+    },
+    {
+      "skill": "team-qa",
+      "version": "1.16.1",
+      "zip": "team-qa-1.16.1-release.zip",
+      "folder": "team-qa-1.16.1-release",
+      "zip_sha256": "d2cf4b90f4d0241e2233607139ac497d49811fb8a612cee124bb1f4e8e9d1cf9",
+      "release": {
+        "schema": "agentpro/release-signature/v1",
+        "key_id": "0cf79a5cf736467e17536e403e95fa66d9b901f29457b98d3111452329b3caa8",
+        "signed": {
+          "skill": "team-qa",
+          "version": "1.16.1",
+          "commit": "835a8384f3a64102706a566161410e53a2d627d0",
+          "tree": "39006c5935993810ed4b597ce113acd93926418b",
+          "repo": "https://github.com/agentpro-tech/team-qa.git",
+          "manifest_sha256": "a25082a2f9d773f5046167a1253fbf348dba3b5b130134868bb5692d28e5ea42",
+          "package_sha256": "e8c298840c9c546bc4797845b233b60f6526469d6b6976c9f98b4a1c523c9e3f"
+        },
+        "signature": "gMQ3cV/VtJwpDnV4/KNFxG4v95qt1unaE8nUmnlZK4XFCd0+gz5HlNmeuWkWnLREyrlH19c2/r9ePtKdW+mpDw=="
+      }
+    }
+  ]
+}

@@ -2,17 +2,17 @@
   "schema": "agentpro/teamqa-channel/v1",
   "channel": "stable",
   "latest": {
-    "version": "1.16.0",
-    "path": "teamqa-suite-1.16.0",
-    "suite_sha256": "00311f956db985b6849479e18f023d255c703be537a691972437601d608d9b0c",
-    "published_at": "2026-11-09T19:06:32.976Z",
+    "version": "1.16.1",
+    "path": "teamqa-suite-1.16.1",
+    "suite_sha256": "9affe9137ad2907787c86d879f5f656211c2726e4f0659f691ba5a950683a2dc",
+    "published_at": "2026-11-10T00:08:30.539Z",
     "upgrade_from": null,
     "license_required": false,
-    "changelog": "Team QA 1.16.0, QA GUI 2.18.0, QA Code 1.11.2 and the Dragon runtime 1.7.0.\n\nGUI cases now run QA GUI's detectors through Dragon 1.7.0: forced loading and error states, a transient probe of each case's main action (fresh test values for a save, none for a delete), an entry probe of each screen, and a width sweep and overlay check once per screen, also for screens a case reaches from a share link. The GUI executor proves the build in the call that opens its tab (openTab proveIdentity). On an older Dragon these checks are reported, not run.\n\nAlso: coverage cells from state receipts, an optional adjudicator from another model family (shadow by default), speed flags that stay off unless the plan turns them on, lighter evidence, and dispatch, hook and update fixes.\n",
+    "changelog": "Team QA 1.16.1, QA GUI 2.18.0, QA Code 1.11.2 and the Dragon runtime 1.7.0.\n\nteamqa dragon install installs for real: it runs the runtime package installer by its real path (on macOS the temp folder is a symlink, and the installer skipped its work and exited 0), and it passes only when the installer reports the new version running.\n",
     "skills": {
       "qa-code": "1.11.2",
       "qa-gui": "2.18.0",
-      "team-qa": "1.16.0"
+      "team-qa": "1.16.1"
     },
     "requirements": {
       "schema": "agentpro/skill-requirements/v1",
@@ -65,6 +65,69 @@
     }
   },
   "history": [
+    {
+      "version": "1.16.1",
+      "path": "teamqa-suite-1.16.1",
+      "suite_sha256": "9affe9137ad2907787c86d879f5f656211c2726e4f0659f691ba5a950683a2dc",
+      "published_at": "2026-11-10T00:08:30.539Z",
+      "upgrade_from": null,
+      "license_required": false,
+      "changelog": "Team QA 1.16.1, QA GUI 2.18.0, QA Code 1.11.2 and the Dragon runtime 1.7.0.\n\nteamqa dragon install installs for real: it runs the runtime package installer by its real path (on macOS the temp folder is a symlink, and the installer skipped its work and exited 0), and it passes only when the installer reports the new version running.\n",
+      "skills": {
+        "qa-code": "1.11.2",
+        "qa-gui": "2.18.0",
+        "team-qa": "1.16.1"
+      },
+      "requirements": {
+        "schema": "agentpro/skill-requirements/v1",
+        "skill": "team-qa",
+        "platforms": [
+          "darwin"
+        ],
+        "node": {
+          "min": "20.0.0"
+        },
+        "dragon": {
+          "bridge": {
+            "min": "1.6.9",
+            "below": "2.0.0"
+          },
+          "extension": {
+            "min": "1.6.9",
+            "below": "2.0.0",
+            "store_ids": [
+              "dmgoldioklileddehbjpbfacojckfkjo"
+            ]
+          },
+          "rpc": [
+            "session.create",
+            "openTab",
+            "do",
+            "captureTab",
+            "getTabInfo",
+            "getPageIdentity",
+            "getNetwork",
+            "getConsole",
+            "startRecording",
+            "stopRecording",
+            "assembleRecording"
+          ],
+          "store_url": "https://chromewebstore.google.com/detail/dmgoldioklileddehbjpbfacojckfkjo",
+          "runtime": {
+            "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAl+1R6bhJsFHY5COifdKtMuhKgNXjlVXp1xbzod5WGZc=\n-----END PUBLIC KEY-----\n",
+            "fingerprint": "sha256:539511950b8749cc87e4908a10f362f4dfc2095e1663f6948bffb4bb2861ca3d"
+          }
+        },
+        "skills": {
+          "qa-gui": {
+            "min": "2.16.0"
+          },
+          "qa-code": {
+            "min": "1.10.0"
+          }
+        }
+      }
+    },
     {
       "version": "1.16.0",
       "path": "teamqa-suite-1.16.0",
