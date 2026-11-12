@@ -1,0 +1,129 @@
+{
+  "schema": "agentpro/teamqa-suite/v1",
+  "version": "1.17.0",
+  "created_at": "2026-11-12T03:21:23.984Z",
+  "license_required": false,
+  "requirements": {
+    "schema": "agentpro/skill-requirements/v1",
+    "skill": "team-qa",
+    "platforms": [
+      "darwin"
+    ],
+    "node": {
+      "min": "20.0.0"
+    },
+    "dragon": {
+      "bridge": {
+        "min": "1.6.9",
+        "below": "2.0.0"
+      },
+      "extension": {
+        "min": "1.6.9",
+        "below": "2.0.0",
+        "store_ids": [
+          "dmgoldioklileddehbjpbfacojckfkjo"
+        ]
+      },
+      "rpc": [
+        "session.create",
+        "openTab",
+        "do",
+        "captureTab",
+        "getTabInfo",
+        "getPageIdentity",
+        "getNetwork",
+        "getConsole",
+        "startRecording",
+        "stopRecording",
+        "assembleRecording"
+      ],
+      "store_url": "https://chromewebstore.google.com/detail/dmgoldioklileddehbjpbfacojckfkjo",
+      "runtime": {
+        "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAl+1R6bhJsFHY5COifdKtMuhKgNXjlVXp1xbzod5WGZc=\n-----END PUBLIC KEY-----\n",
+        "fingerprint": "sha256:539511950b8749cc87e4908a10f362f4dfc2095e1663f6948bffb4bb2861ca3d"
+      }
+    },
+    "skills": {
+      "qa-gui": {
+        "min": "2.16.0"
+      },
+      "qa-code": {
+        "min": "1.10.0"
+      }
+    }
+  },
+  "changelog": "Team QA 1.17.0, QA GUI 2.18.0, QA Code 1.11.2 and the Dragon runtime 1.7.0.\n\nA Buzz agent session can run Team QA, with the plan approved by a signed Buzz message in the job thread. teamqa board publish --to colab puts the QA board on Doc-Colab: one task board per run, evidence uploaded, the doc read back and checked before the link is given.\n",
+  "upgrade_from": null,
+  "dragon_runtime": {
+    "file": "dragon-runtime-1.7.0.dbrc",
+    "sha256": "858d0b6227c9f66db3c152122f5703a6ec77826d6923ad7c060309dcda7f89db",
+    "signature_sha256": "75c74902408b5618a7ed2c3208b52a35eba9fac5b20db28cf2b4f8f0eacec42d",
+    "version": "1.7.0",
+    "build": "dd95c8c"
+  },
+  "skills": [
+    {
+      "skill": "qa-code",
+      "version": "1.11.2",
+      "zip": "qa-code-1.11.2-release.zip",
+      "folder": "qa-code-1.11.2-release",
+      "zip_sha256": "8b50bf8889e1b3a962a84b4c87d5ca9e63179112c28299e026746906548c7018",
+      "release": {
+        "schema": "agentpro/release-signature/v1",
+        "key_id": "0cf79a5cf736467e17536e403e95fa66d9b901f29457b98d3111452329b3caa8",
+        "signed": {
+          "skill": "qa-code",
+          "version": "1.11.2",
+          "commit": "455661338c17319e3473a03a5ffc2247e8688c15",
+          "tree": "2ca4a83924fe03d75a6f08c2ebb947d53b3b07e2",
+          "repo": "https://github.com/agentpro-tech/qa-code.git",
+          "manifest_sha256": "649231dc7cda8c79a8ff087c25b80547f3f8187a6249132371820542ba81c26a",
+          "package_sha256": "6e5eddf43e5550d05d8b2f0c107f38f2fda5826fcde4d98b0f30d53c24ad282a"
+        },
+        "signature": "0Ox1Q63huzeaKf60R8ItuTnyvISbo0+zwwi1R08c5XwGfG+nFlB8TIxMR8tsDGEWzIz5XMFjdR0iveXApDCrDw=="
+      }
+    },
+    {
+      "skill": "qa-gui",
+      "version": "2.18.0",
+      "zip": "qa-gui-2.18.0-release.zip",
+      "folder": "qa-gui-2.18.0-release",
+      "zip_sha256": "b247353e818b46efde8a0d5d0f4bc3137bec2d4bc4a027ad53d0a7235fd26156",
+      "release": {
+        "schema": "agentpro/release-signature/v1",
+        "key_id": "0cf79a5cf736467e17536e403e95fa66d9b901f29457b98d3111452329b3caa8",
+        "signed": {
+          "skill": "qa-gui",
+          "version": "2.18.0",
+          "commit": "f11ac550c893daf3f8dd2dc2a5d7bd65e9c0cb89",
+          "tree": "4b28d1449e314f335d0df568195ffd324445b128",
+          "repo": "https://github.com/agentpro-tech/qa-gui.git",
+          "manifest_sha256": "349b5f5a2577d6caa42770e0af7249a0f93440fec5a57f535257dee9fa81ff7b",
+          "package_sha256": "128ccaf12e232bc9545a9b2f64de2ff3393ad5ab3c34e3642f040a5d4df158ce"
+        },
+        "signature": "R0ErIE1CFD+ng2lyN3OlkKJQrJtt5Xa+f6p/RJ0oXH8C6lFmadYMaGi8o7oSz8ba/UP5z2fL7+0Kh07u7XbUCw=="
+      }
+    },
+    {
+      "skill": "team-qa",
+      "version": "1.17.0",
+      "zip": "team-qa-1.17.0-release.zip",
+      "folder": "team-qa-1.17.0-release",
+      "zip_sha256": "7a9731181f31273cbc030a421c09e3ce67bb94975a4e77c83213ffddf17e664b",
+      "release": {
+        "schema": "agentpro/release-signature/v1",
+        "key_id": "0cf79a5cf736467e17536e403e95fa66d9b901f29457b98d3111452329b3caa8",
+        "signed": {
+          "skill": "team-qa",
+          "version": "1.17.0",
+          "commit": "bc1a43a0c9eaba58b5747cfa4f9a7568d4a65c6a",
+          "tree": "f770211418329cd828e4046b811e1ceeac5b98c9",
+          "repo": "https://github.com/agentpro-tech/team-qa.git",
+          "manifest_sha256": "fee0d2d8f74246a694f191a17507c9d312984b5417ac158056144088e4300850",
+          "package_sha256": "c8c01dd741f1e58917f40ee35c9c7af6d94584db2b87de9c1891b88add2e830f"
+        },
+        "signature": "IbLKUV0HESmWb0VyKlshUCgKy8MUFaQ4K3M72vQKn9mV+aQqTq9CsEDKC5gLCELbVEKNDZ2YfKwAmb0BuG/aDw=="
+      }
+    }
+  ]
+}
