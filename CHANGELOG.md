@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.18.0 — 2026-11-13
+
+QA boards as Doc-Colab task boards: Team QA 1.18.0, QA GUI 2.18.0, QA Code 1.11.2 and the Dragon runtime 1.7.0.
+
+- `teamqa board publish --to colab` now publishes the QA board as a Doc-Colab task board: every case and defect is a card in a status column, with priority, function and UI verdicts, requirement, steps, expected result, findings and evidence, so the team can use the Kanban, table and timeline views, filter, and comment on each card.
+- An Overview page under the board shows the release verdict, the run facts, and live numbers and charts (cases, passed, open and closed defects, cases by function verdict, open defects by priority) that Doc-Colab keeps current as cards move.
+- A new revision moves the same cards and keeps their comments and the cards people added; the board is read back field by field before the link is printed. The board shows only the statuses the run uses. A run published as a page by 1.17.0 keeps that form.
+- From 1.15.0 or later, `teamqa update` installs 1.18.0; in Claude Code, `/plugin update team-qa@agentpro`.
+
 ## 1.17.0 — 2026-11-12
 
 QA jobs from Buzz, boards on Doc-Colab: Team QA 1.17.0, QA GUI 2.18.0, QA Code 1.11.2 and the Dragon runtime 1.7.0.
