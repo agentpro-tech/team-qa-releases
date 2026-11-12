@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.17.0 — 2026-11-12
+
+QA jobs from Buzz, boards on Doc-Colab: Team QA 1.17.0, QA GUI 2.18.0, QA Code 1.11.2 and the Dragon runtime 1.7.0.
+
+- A Buzz agent session can be the root of a run. The plan is approved by a signed Buzz message in the job thread, and Team QA checks the signature.
+- `teamqa board publish --to colab --channel <channel>` publishes the QA board to Doc-Colab: one task board per run, every case and defect a card people can open and comment on, evidence uploaded, and the doc read back and compared field by field before the link is printed.
+- Web identity: a static HTML page counts as a deployed build, scripts a browser extension injects are not page code, and a Claude Code or Buzz root accepts a Production target the request names.
+- From 1.15.0 or later, `teamqa update` installs 1.17.0; in Claude Code, `/plugin update team-qa@agentpro`.
+
 ## 1.16.2 — 2026-11-10
 
 Claude Code and Codex side by side: Team QA 1.16.2, QA GUI 2.18.0, QA Code 1.11.2 and the Dragon runtime 1.7.0.
