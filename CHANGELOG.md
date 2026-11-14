@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.19.0 — 2026-11-14
+
+QA on Production by consequence: Team QA 1.19.0, QA GUI 2.19.0, QA Code 1.11.2 and the Dragon runtime 1.7.0.
+
+- Every step is judged by what it causes, not by where it runs: R0 read, R1/R2 a change inside the test identities and the data the run created, R3 a step that reaches real people, R4 a final effect outside the test (money, stock, shipping, invoices, messages to customers, publishing, other users' data), R5 never (a real person's password, one-time codes, CAPTCHA, real cards, identity papers).
+- `teamqa target init --type saas|ecommerce|finance|operations|messaging|content` writes an app's target profile from a preset: test identities, test data prefix, the channels that reach the outside world (`none`, `sandbox` or `live`), sensitive areas and limits. The owner approves it once in the run's approval channel (the chat of the root session or the host thread), with the same source check as a plan approval. A changed profile needs a new approval.
+- `teamqa directive add|approve|revoke` opens one final action for one case, with a count, an amount cap, a compensation and an expiry. Revoking needs no approval.
+- `teamqa action check` classes a step from its label (English and Vietnamese, with or without diacritics), URL, field and the profile, decides, and records the decision; exit 3 means the step is not done and the case is ungraded with `PROD_GRANT_REQUIRED`. GUI executors on Production get the same decision in their case prompt.
+- `teamqa identity add|issue|mark|list` keeps test identities in a 0600 pool and hands a run its accounts file; passwords are read from stdin, generated at random for self sign-up, and kept out of the board, report, RTM and plan by the existing secret scan.
+- `teamqa created add|plan|cleaned|residue` records the test data a run creates and its clean-up. The report adds a Production safety section and the result line adds `production_actions`, `production_denied`, `grant_waiting_cases`, `created` and `residue`.
+- QA GUI 2.19.0: a test identity Team QA issued for the run may sign in; on Production it follows `teamqa action check`. Used on its own, QA GUI keeps asking before any irreversible write.
+- From 1.15.0 or later, `teamqa update` installs 1.19.0; in Claude Code, `/plugin update team-qa@agentpro`.
+
 ## 1.18.0 — 2026-11-13
 
 QA boards as Doc-Colab task boards: Team QA 1.18.0, QA GUI 2.18.0, QA Code 1.11.2 and the Dragon runtime 1.7.0.
