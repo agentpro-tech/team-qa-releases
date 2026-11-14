@@ -4,7 +4,7 @@ Team QA runs QA on your app the way a small QA team would: it plans the testing,
 
 This repository holds the signed releases and the `agentpro` plugin marketplace. Team QA is free to use for now, with no licence needed.
 
-**Latest: Team QA 1.18.0** (with QA GUI 2.18.0, QA Code 1.11.2 and the Dragon runtime 1.7.0). See [Releases](../../releases).
+**Latest: Team QA 1.19.0** (with QA GUI 2.19.0, QA Code 1.11.2 and the Dragon runtime 1.7.0). See [Releases](../../releases).
 
 ## What you need
 
@@ -28,18 +28,18 @@ The plugin holds the same signed suite as the download below (source: [agentpro-
 Then ask Claude to run `teamqa doctor`: the `teamqa` command is on the PATH of the commands Claude runs. When the doctor reports the Dragon runtime missing, it prints the command that installs the signed runtime of this release, for example:
 
 ```bash
-teamqa dragon install --from https://github.com/agentpro-tech/team-qa-releases/releases/download/team-qa-1.18.0/dragon-runtime.dbrc
+teamqa dragon install --from https://github.com/agentpro-tech/team-qa-releases/releases/download/team-qa-1.19.0/dragon-runtime.dbrc
 ```
 
 Then install the Dragon extension (see [Dragon](#dragon) below) and ask for your first run.
 
 ## Install with the suite installer (Codex, or by hand)
 
-1. Download `teamqa-suite-1.18.0.tar.gz` from the [latest release](../../releases/latest) and unpack it:
+1. Download `teamqa-suite-1.19.0.tar.gz` from the [latest release](../../releases/latest) and unpack it:
 
    ```bash
-   tar xzf ~/Downloads/teamqa-suite-1.18.0.tar.gz -C ~/Downloads
-   cd ~/Downloads/teamqa-suite-1.18.0
+   tar xzf ~/Downloads/teamqa-suite-1.19.0.tar.gz -C ~/Downloads
+   cd ~/Downloads/teamqa-suite-1.19.0
    ```
 
 2. Run the installer. It checks Node, prints the publisher key id, verifies every signature, then installs QA Code, QA GUI and Team QA into `~/.agents/skills` (SCROLL, the runtime Team QA uses to confirm its writes, ships inside Team QA):
@@ -69,7 +69,7 @@ Then install the Dragon extension (see [Dragon](#dragon) below) and ask for your
 - **Runtime.** If the doctor reports `DRAGON_RUNTIME_MISSING`, install the signed runtime: in the plugin, the command the doctor prints (the release's `dragon-runtime.dbrc`); with the suite installer, the runtime that ships in the suite folder. Team QA checks its signature before running any of it:
 
   ```bash
-  teamqa dragon install --from ~/Downloads/teamqa-suite-1.18.0
+  teamqa dragon install --from ~/Downloads/teamqa-suite-1.19.0
   ```
 
 - **Extension.** Install Dragon Browser from the Chrome Web Store, then open the extension's options and click **Connect**; a dialog on your Mac asks you to allow it once. If your version has no Connect button yet, paste the token from `~/.dragon-browser/auth/token` into the options instead.
